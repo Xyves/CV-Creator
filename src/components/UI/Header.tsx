@@ -1,10 +1,10 @@
-function Header() {
+export default function Header() {
   return (
-    <header>
+    <section>
       <h1>Resume</h1>
       <div className="iconSection">
-        <svg>Print icon</svg>
-        <svg>Example icon</svg>
+        {/* <svg>Print icon</svg>
+        <svg>Example icon</svg> */}
       </div>
       <div className="credits">
         <h2>Created by</h2>
@@ -13,6 +13,6 @@ function Header() {
           <span>Xyves</span>
         </a>
       </div>
-    </header>
+    </section>
   );
 }
