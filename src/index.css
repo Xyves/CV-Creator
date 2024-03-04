@@ -109,7 +109,9 @@ body {
 ol,
 ul {
   list-style: none;
+  list-style-type: none;
 }
+
 blockquote,
 q {
   quotes: none;
@@ -126,17 +128,57 @@ table {
   border-spacing: 0;
 }
 /*  */
-
+:root {
+  --main-background: #1c1e1f;
+  --sidebar-background: #0c3a529a;
+  --section-background: #141616;
+}
+section > * {
+  padding: 1.5rem;
+  margin-left: 2rem;
+}
 #educationForm li,
 #personalDataForm li,
 #experienceForm li {
-  padding: 20px;
-  margin: 20px;
-  background-color: yellow;
+  margin-bottom: 1.2rem;
 }
 form li input {
   padding: 10px;
 }
 body {
-  background-color: rgb(20, 20, 20);
+  background-color: var(--main-background);
+}
+.sidebar {
+  background-color: var(--main-background);
+}
+.sidebar label,
+section h1,
+section button,
+section span {
+  color: white;
+}
+.sidebar label {
+  font-size: 1.5rem;
+}
+.sidebar input {
+  margin-top: 0.5rem;
+  width: 80%;
+}
+section {
+  margin-bottom: 3rem;
+  background-color: var(--section-background);
+  border-radius: 15px;
+}
+.sidebar {
+  border-radius: 15px;
+}
+.asideResume aside {
+  height: 90vh;
+}
+.asideResume {
+  margin: inherit auto;
+}
+section h1 {
+  font-size: 2rem;
+  cursor: pointer;
 }
