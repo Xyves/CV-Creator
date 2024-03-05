@@ -22,23 +22,39 @@ export default function PersonalData() {
                 <li className="inputContainer">
                   <label htmlFor="name">Full Name</label>
                   <br />
-                  <input type="text" placeholder="Enter your full name" />
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    name="name"
+                  />
                 </li>
 
                 <li className="inputContainer">
                   <label htmlFor="email">Email</label>
                   <br />
-                  <input type="text" placeholder="Enter your email address" />
+                  <input
+                    type="text"
+                    placeholder="Enter your email address"
+                    name="email"
+                  />
                 </li>
                 <li className="inputContainer">
                   <label htmlFor="phone">Phone</label>
                   <br />
-                  <input type="text" placeholder="Enter your phone number" />
+                  <input
+                    type="text"
+                    placeholder="Enter your phone number"
+                    name="phone"
+                  />
                 </li>
                 <li className="inputContainer">
                   <label htmlFor="address">Address</label>
                   <br />
-                  <input type="text" placeholder="Enter your address" />
+                  <input
+                    type="text"
+                    placeholder="Enter your address"
+                    name="address"
+                  />
                 </li>
               </ul>
               <div className="button-container">

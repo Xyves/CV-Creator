@@ -1,4 +1,5 @@
-export default function MainResume() {
+import Experience from "../Form/Experience";
+export default function MainResume({ name, email, phone, address }) {
   return (
     <div className="resumePreview">
       <div className="resumeTop">

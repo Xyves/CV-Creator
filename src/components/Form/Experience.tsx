@@ -1,18 +1,12 @@
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function Experience() {
+export default function Experience({ onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
-  const [selectionRange, setSelectionRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
 
-  const handleSelect = (ranges: any) => {
-    setSelectionRange([ranges.selection]);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    onInputChange(value);
   };
   return (
     <section
@@ -30,44 +24,44 @@ export default function Experience() {
             <fieldset>
               <ul>
                 <li>
-                  <label htmlFor="">Position</label>
+                  <label htmlFor="position">Position</label>
                   <br />
-                  <input type="text" />
+                  <input type="text" onChange={handleChange} />
                 </li>
                 <li>
-                  <label htmlFor="">Company</label>
+                  <label htmlFor="company">Company</label>
                   <br />
 
-                  <input type="text" />
+                  <input type="text" name="company" />
                 </li>
                 <li>
-                  <label htmlFor="">Location</label>
+                  <label htmlFor="location">Location</label>
                   <br />
 
-                  <input type="text" />
+                  <input type="text" name="location" />
                 </li>
                 <li className="checkBox">
-                  <input type="checkbox" name="" id="" />{" "}
+                  <input type="checkbox" name="isWorking" id="" />{" "}
                   <span> I am currently working in this role</span>
                 </li>
                 <li>
-                  <label htmlFor="">Start Date</label>
+                  <label htmlFor="startDate">Start Date</label>
                   <br></br>
-                  <input type="date" />
+                  <input type="date" name="startDate" />
                   <br></br>
-                  <label htmlFor="">End Date</label>
+                  <label htmlFor="endDate">End Date</label>
                   <br></br>
 
-                  <input type="date" />
+                  <input type="date" name="endDate" />
                 </li>
                 <li>
-                  <label htmlFor="">Description</label>
+                  <label htmlFor="description">Description</label>
                   <textarea
-                    name=""
-                    id=""
+                    name="description"
+                    id="expDesc"
                     placeholder="Enter your description"
-                    cols="30"
-                    rows="7"
+                    cols={30}
+                    rows={7}
                   ></textarea>
                 </li>
               </ul>
