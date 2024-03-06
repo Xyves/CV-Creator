@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function Skills() {
+export default function Skills({ onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
   const addSkill = () => {
     const ul = document.querySelector("#skillsList");
@@ -11,6 +11,7 @@ export default function Skills() {
   };
   return (
     <section
+      className="sectionForm"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -20,10 +21,14 @@ export default function Skills() {
       ) : (
         <>
           <h1>Skills</h1>
-          <form action="" onClick={handleChildClick}>
+          <form action="">
             <ul id="skillsList">
               <li>
-                <input type="text" placeholder="Skill" />
+                <input
+                  type="text"
+                  placeholder="Skill"
+                  onChange={(e) => onInputChange("skill", e.target.value)}
+                />
               </li>
             </ul>
             <div className="button-container">

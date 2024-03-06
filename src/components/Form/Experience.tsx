@@ -5,12 +5,12 @@ export default function Experience({ onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleChange = (e) => {
-    const value = e.target.value;
-    onInputChange(value);
+    onInputChange(e.target.value);
   };
+
   return (
     <section
-      className="experience "
+      className="experience sectionForm"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -26,33 +26,67 @@ export default function Experience({ onInputChange }) {
                 <li>
                   <label htmlFor="position">Position</label>
                   <br />
-                  <input type="text" onChange={handleChange} />
+                  <input
+                    type="text"
+                    onChange={(e) =>
+                      onInputChange("jobPosition", e.target.value)
+                    }
+                  />
                 </li>
                 <li>
                   <label htmlFor="company">Company</label>
                   <br />
 
-                  <input type="text" name="company" />
+                  <input
+                    type="text"
+                    name="company"
+                    onChange={(e) =>
+                      onInputChange("jobCompany", e.target.value)
+                    }
+                  />
                 </li>
                 <li>
-                  <label htmlFor="location">Location</label>
+                  <label htmlFor="jobLocation">Address</label>
                   <br />
 
-                  <input type="text" name="location" />
+                  <input
+                    type="text"
+                    name="location"
+                    onChange={(e) =>
+                      onInputChange("jobAddress", e.target.value)
+                    }
+                  />
                 </li>
                 <li className="checkBox">
-                  <input type="checkbox" name="isWorking" id="" />{" "}
+                  <input
+                    type="checkbox"
+                    name="isWorking"
+                    id=""
+                    onChange={(e) => onInputChange("isWorking", e.target.value)}
+                  />
                   <span> I am currently working in this role</span>
                 </li>
                 <li>
                   <label htmlFor="startDate">Start Date</label>
                   <br></br>
-                  <input type="date" name="startDate" />
+                  <input
+                    type="date"
+                    name="startDate"
+                    onChange={(e) =>
+                      onInputChange("jobStartDate", e.target.value)
+                    }
+                  />
                   <br></br>
                   <label htmlFor="endDate">End Date</label>
                   <br></br>
 
-                  <input type="date" name="endDate" />
+                  <input
+                    type="date"
+                    name="endDate"
+                    onChange={(e) =>
+                      onInputChange("jobEndDate", e.target.value)
+                    }
+                  />
                 </li>
                 <li>
                   <label htmlFor="description">Description</label>
@@ -62,6 +96,9 @@ export default function Experience({ onInputChange }) {
                     placeholder="Enter your description"
                     cols={30}
                     rows={7}
+                    onChange={(e) =>
+                      onInputChange("jobDescription", e.target.value)
+                    }
                   ></textarea>
                 </li>
               </ul>

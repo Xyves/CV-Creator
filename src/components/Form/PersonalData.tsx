@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
-export default function PersonalData() {
+export default function PersonalData({ onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <section
-      className="contact"
+      className="contact sectionForm"
       onClick={(e) => {
         setIsVisible(!isVisible);
       }}
@@ -36,6 +36,7 @@ export default function PersonalData() {
                     type="text"
                     placeholder="Enter your email address"
                     name="email"
+                    onChange={(e) => onInputChange("email", e.target.value)}
                   />
                 </li>
                 <li className="inputContainer">
