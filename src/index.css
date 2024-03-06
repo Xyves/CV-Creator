@@ -164,7 +164,7 @@ section span {
   margin-top: 0.5rem;
   width: 80%;
 }
-section {
+.sectionForm {
   margin-bottom: 3rem;
   background-color: var(--section-background);
   border-radius: 15px;
@@ -178,7 +178,7 @@ section {
 .asideResume {
   margin: inherit auto;
 }
-section h1 {
+.sectionForm h1 {
   font-size: 2rem;
   cursor: pointer;
 }
