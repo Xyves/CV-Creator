@@ -19,13 +19,17 @@ function App() {
     jobEndDate: "09/2022",
     jobDescription:
       "As a Mid-Level Front-End Developer, I played a pivotal role in crafting engaging and user-centric web experiences for our customers.",
-    eduQuali: "",
+    eduQuali: "Bachelor of Science",
+    eduLocation: "Madrid ",
+    schoolName: "University of Spain",
+    startEdu: "10/19",
+    endEdu: "2/23",
   });
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };
   return (
-    <div className="container flex flex-wrap">
+    <div className="container flex min-h-full min-w-full flex-wrap">
       <div className="sidebar mx-10 max-w-xl bg-red-500">
         <Header onInputChange={handleInputChange}></Header>
         <PersonalData onInputChange={handleInputChange}></PersonalData>
@@ -34,7 +38,7 @@ function App() {
         <Skills onInputChange={handleInputChange}></Skills>
       </div>
       <main className=" asideResume align-center flex flex-grow justify-center bg-red-500">
-        <aside className=" fixed  my-10  w-1/2 bg-blue-500 ">
+        <aside className=" fixed  my-10  w-1/2 bg-[#141616] ">
           <MainResume data={formData}></MainResume>
         </aside>
       </main>
