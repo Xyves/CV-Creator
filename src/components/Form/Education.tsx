@@ -1,8 +1,14 @@
+import Icon from "@mdi/react";
+import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
 export default function Education({ onInputChange }) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <section
       className="education sectionForm"
@@ -11,11 +17,21 @@ export default function Education({ onInputChange }) {
       }}
     >
       {!isVisible ? (
-        <h1>Education</h1>
+        <div className="flex items-center justify-between">
+          <h1>Education</h1>
+          <Icon path={mdiMenuRight} size={2} className="text-white" />
+        </div>
       ) : (
         <>
-          <h1>Education</h1>
-          <form action="" id="educationForm">
+          <div className="  flex items-center justify-between">
+            <h1>Education</h1>
+            <Icon
+              path={mdiMenuDown}
+              size={2}
+              className="  inline justify-self-end text-white"
+            />
+          </div>
+          <form action="" id="educationForm" onClick={handleChildClick}>
             <fieldset>
               <ul>
                 <li>
@@ -48,33 +64,54 @@ export default function Education({ onInputChange }) {
                     placeholder="Enter the location"
                     name="location"
                     onChange={(e) =>
-                      onInputChange("schoolLocation", e.target.value)
+                      onInputChange("eduLocation", e.target.value)
                     }
                   />
+                </li>
+                <li className="checkBox">
+                  <input
+                    type="checkbox"
+                    name="isWorking"
+                    id=""
+                    value="true"
+                    checked={isChecked}
+                    onChange={(e) => {
+                      handleCheckboxChange();
+                      onInputChange("isStudying", e.target.checked);
+                    }}
+                  />
+                  <span> Currently studying</span>
                 </li>
                 <li>
                   <label htmlFor="startEdu">Start </label>
                   <br />
                   <input
-                    type="text"
-                    placeholder="MM/YY - MM/YY"
+                    type="month"
                     name="startEdu"
                     onChange={(e) => onInputChange("startEdu", e.target.value)}
                   />
-                  <label htmlFor="endEdu">End </label>
-                  <br />
-                  <input
-                    type="text"
-                    placeholder="MM/YY - MM/YY"
-                    name="endEdu"
-                    onChange={(e) => onInputChange("endEdu", e.target.value)}
-                  />
+                  <br></br>
+                  {!isChecked ? (
+                    <>
+                      <label htmlFor="endEdu">End Date</label>
+                      <br></br>
+                      <input
+                        type="month"
+                        name="endEdu"
+                        onChange={(e) =>
+                          onInputChange("endEdu", e.target.value)
+                        }
+                      />
+                    </>
+                  ) : null}
                 </li>
               </ul>
-              <div className="button-container">
-                <button className="clearBtn">Clear</button>
+              <div className="button-container w-s mx-1 flex justify-between">
+                <button className="reset-button bg-blue-700 p-4" type="reset">
+                  Clear
+                </button>
                 <button
-                  className="addEdu"
+                  className="save-button mr-9 bg-blue-700 p-3"
                   onClick={() => {
                     setIsVisible(!isVisible);
                   }}

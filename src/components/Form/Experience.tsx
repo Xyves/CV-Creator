@@ -1,9 +1,14 @@
+import Icon from "@mdi/react";
+import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
 export default function Experience({ onInputChange }) {
-  const [isVisible, setIsVisible] = useState(true);
-
+  const [isVisible, setIsVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   const handleChange = (e) => {
     onInputChange(e.target.value);
   };
@@ -16,10 +21,20 @@ export default function Experience({ onInputChange }) {
       }}
     >
       {!isVisible ? (
-        <h1>Experience</h1>
+        <div className="flex items-center justify-between">
+          <h1>Experience</h1>
+          <Icon path={mdiMenuRight} size={2} className="text-white" />
+        </div>
       ) : (
         <>
-          <h1>Experience</h1>
+          <div className="  flex items-center justify-between">
+            <h1>Experience</h1>
+            <Icon
+              path={mdiMenuDown}
+              size={2}
+              className="  inline justify-self-end text-white"
+            />
+          </div>
           <form action="" id="experienceForm" onClick={handleChildClick}>
             <fieldset>
               <ul>
@@ -45,56 +60,55 @@ export default function Experience({ onInputChange }) {
                     }
                   />
                 </li>
-                <li>
-                  <label htmlFor="jobLocation">Address</label>
-                  <br />
-
-                  <input
-                    type="text"
-                    name="location"
-                    onChange={(e) =>
-                      onInputChange("jobAddress", e.target.value)
-                    }
-                  />
-                </li>
                 <li className="checkBox">
                   <input
                     type="checkbox"
                     name="isWorking"
                     id=""
-                    onChange={(e) => onInputChange("isWorking", e.target.value)}
+                    value="true"
+                    checked={isChecked}
+                    onChange={(e) => {
+                      handleCheckboxChange();
+                      onInputChange("isWorking", e.target.checked);
+                    }}
                   />
-                  <span> I am currently working in this role</span>
+                  <span> Currently working</span>
                 </li>
                 <li>
                   <label htmlFor="startDate">Start Date</label>
                   <br></br>
                   <input
-                    type="date"
+                    type="month"
                     name="startDate"
                     onChange={(e) =>
                       onInputChange("jobStartDate", e.target.value)
                     }
                   />
                   <br></br>
-                  <label htmlFor="endDate">End Date</label>
-                  <br></br>
+                  {!isChecked ? (
+                    <>
+                      <label htmlFor="endDate">End Date</label>
+                      <br></br>
 
-                  <input
-                    type="date"
-                    name="endDate"
-                    onChange={(e) =>
-                      onInputChange("jobEndDate", e.target.value)
-                    }
-                  />
+                      <input
+                        type="month"
+                        name="endDate"
+                        onChange={(e) =>
+                          onInputChange("jobEndDate", e.target.value)
+                        }
+                      />
+                    </>
+                  ) : null}
                 </li>
                 <li>
                   <label htmlFor="description">Description</label>
+                  <br></br>
                   <textarea
-                    name="description"
+                    name="description "
+                    className="my-3 resize-none p-1"
                     id="expDesc"
                     placeholder="Enter your description"
-                    cols={30}
+                    cols={20}
                     rows={7}
                     onChange={(e) =>
                       onInputChange("jobDescription", e.target.value)
@@ -102,10 +116,12 @@ export default function Experience({ onInputChange }) {
                   ></textarea>
                 </li>
               </ul>
-              <div className="button-container">
-                <button className="clearBtn">Clear</button>
+              <div className="button-container w-s mx-1 flex justify-between">
+                <button className="reset-button bg-blue-700 p-4" type="reset">
+                  Clear
+                </button>
                 <button
-                  className="addEdu"
+                  className="save-button mr-9 bg-blue-700 p-3"
                   onClick={() => {
                     setIsVisible(!isVisible);
                   }}

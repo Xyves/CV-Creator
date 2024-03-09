@@ -1,21 +1,33 @@
+import Icon from "@mdi/react";
+import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
+
 export default function PersonalData({ onInputChange }) {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
     <section
-      className="contact sectionForm"
+      className="contact sectionForm "
       onClick={(e) => {
         setIsVisible(!isVisible);
       }}
     >
       {!isVisible ? (
-        <h1>Personal Data</h1>
+        <div className="flex items-center justify-between">
+          <h1>Personal Data</h1>
+          <Icon path={mdiMenuRight} size={2} className="text-white" />
+        </div>
       ) : (
         <>
-          <h1>Personal Data</h1>
-
+          <div className="flex items-center justify-between">
+            <h1>Personal Data</h1>
+            <Icon
+              path={mdiMenuDown}
+              size={2}
+              className="inline justify-self-end text-white"
+            />
+          </div>
           <form action="" id="personalDataForm" onClick={handleChildClick}>
             <fieldset>
               <ul>
@@ -26,9 +38,9 @@ export default function PersonalData({ onInputChange }) {
                     type="text"
                     placeholder="Enter your full name"
                     name="name"
+                    onChange={(e) => onInputChange("name", e.target.value)}
                   />
                 </li>
-
                 <li className="inputContainer">
                   <label htmlFor="email">Email</label>
                   <br />
@@ -46,6 +58,7 @@ export default function PersonalData({ onInputChange }) {
                     type="text"
                     placeholder="Enter your phone number"
                     name="phone"
+                    onChange={(e) => onInputChange("phone", e.target.value)}
                   />
                 </li>
                 <li className="inputContainer">
@@ -55,12 +68,16 @@ export default function PersonalData({ onInputChange }) {
                     type="text"
                     placeholder="Enter your address"
                     name="address"
+                    onChange={(e) => onInputChange("address", e.target.value)}
                   />
                 </li>
               </ul>
-              <div className="button-container">
+              <div className="button-container w-s mx-1 flex justify-between">
+                <button className="reset-button bg-blue-700 p-4" type="reset">
+                  Clear
+                </button>
                 <button
-                  className="Save"
+                  className="save-button mr-9 bg-blue-700 p-3"
                   onClick={() => {
                     setIsVisible(!isVisible);
                   }}

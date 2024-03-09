@@ -1,12 +1,12 @@
 import Icon from "@mdi/react";
 import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
-
 import { useState } from "react";
+
 export default function Header() {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <section
-      className="sectionForm  text-white"
+      className="sectionForm text-white"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -30,7 +30,6 @@ export default function Header() {
           <div className="credits">
             <h2>Created by</h2>
             <a href="https://github.com/Xyves" target="_blank">
-              {/* <svg></svg> */}
               <span>Xyves</span>
             </a>
           </div>
