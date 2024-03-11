@@ -31,7 +31,7 @@ export default function MainResume({ data }) {
         <ExperienceResume data={data}></ExperienceResume>
         <h2 className="my-5 text-4xl font-bold">Education</h2>
         <EducationResume data={data}></EducationResume>
-        <SkillsResume></SkillsResume>
+        <SkillsResume data={data}></SkillsResume>
       </div>
     </div>
   );
