@@ -114,12 +114,18 @@ section {
   display: block;
 }
 :root {
-  min-width: 100vw;
-  min-height: 100%;
   overflow-x: hidden;
 }
 body {
   line-height: 1;
+  min-width: 100%;
+  min-height: 100%;
+}
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
 }
 ol,
 ul {
@@ -178,12 +184,12 @@ section span {
 }
 .sidebar input {
   margin-top: 0.5rem;
-  width: 80%;
 }
 .sectionForm {
   margin-bottom: 3rem;
   background-color: var(--section-background);
   border-radius: 15px;
+  max-width: 35rem;
 }
 .sidebar {
   border-radius: 15px;
@@ -206,4 +212,22 @@ input {
   padding: 3rem;
   border-radius: 8px;
   color: white;
+}
+textarea {
+  background-color: var(--main-background);
+  color: white;
+}
+.sidebar {
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-color: #aaa49b var(--main-background);
+}
+.button-container {
+  margin-top: 1rem;
+}
+.experienceContainer {
+  max-width: 70%;
+}
+.experienceContainer .expPosition {
+  font-size: 1.25rem;
 }
