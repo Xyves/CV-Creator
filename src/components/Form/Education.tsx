@@ -31,7 +31,12 @@ export default function Education({ onInputChange }) {
               className="  inline justify-self-end text-white"
             />
           </div>
-          <form action="" id="educationForm" onClick={handleChildClick}>
+          <form
+            action=""
+            id="educationForm"
+            onClick={handleChildClick}
+            className="border-4 border-solid border-pink-600"
+          >
             <fieldset>
               <ul>
                 <li>
@@ -121,6 +126,9 @@ export default function Education({ onInputChange }) {
               </div>
             </fieldset>
           </form>
+          <button className="w-1/2 place-self-center bg-red-300">
+            Add Education
+          </button>
         </>
       )}
     </section>
