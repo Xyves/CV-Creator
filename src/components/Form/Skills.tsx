@@ -4,34 +4,24 @@ import { mdiMenuDown, mdiMenuRight, mdiDelete, mdiPlus } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-interface SkillItem {
-  id: number;
-  skillName: string;
-}
-
-export default function Skills({ onInputChange }) {
+export default function Skills({ onInputChange, skills }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [showComponent, setShowComponent] = useState(false);
-
-  const [skillList, setSkillList] = useState([]);
+  const [skillList, setSkillList] = useState(skills || []);
   const [newSkillName, setNewSkillName] = useState<string>("");
-
-  const deleteSkill = (id) => {
+  const onDeleteSkill = (id) => {
     setSkillList(skillList.filter((skill) => skill.id !== id));
   };
-
   function createSkill() {
     const existingSkillIndex = skillList.findIndex(
       (skill) => skill.id === skillList.length + 1
     );
-
     if (existingSkillIndex !== -1) {
-      // If the skill with the same ID exists, update its name
+      // Skill with id exists:
       const updatedSkillList = [...skillList];
       updatedSkillList[existingSkillIndex].name = newSkillName;
       setSkillList(updatedSkillList);
     } else {
-      // If the skill with the same ID doesn't exist, add it to the list
+      // Skill with id doesn't exist
       const newSkillItem = { id: skillList.length + 1, name: newSkillName };
       setSkillList([...skillList, newSkillItem]);
     }
@@ -64,7 +54,7 @@ export default function Skills({ onInputChange }) {
                 <Skill
                   key={skill.id}
                   skill={skill}
-                  deleteSkill={deleteSkill}
+                  onDelete={onDeleteSkill}
                   onInputChange={(updatedSkill) =>
                     onInputChange("skill", updatedSkill)
                   }
@@ -92,28 +82,25 @@ export default function Skills({ onInputChange }) {
     </section>
   );
 }
-function Skill({ skill, onInputChange, deleteSkill }) {
+export function Skill({ skill, onInputChange, onDelete }) {
   const handleChange = (e) => {
     const updatedSkill = { ...skill, name: e.target.value };
     onInputChange(updatedSkill);
   };
 
+  const handleDelete = () => {
+    onDelete(skill.id);
+  };
   return (
-    <div className="skill ">
-      <li className="mb-5 ">
+    <div className="skill">
+      <li className="mb-5">
         <input
           type="text"
           placeholder="Skill"
           className="py-4"
           onChange={handleChange}
         />
-        <button
-          onClick={() => {
-            deleteSkill(skill.id);
-            console.log("w");
-          }}
-          type="button"
-        >
+        <button onClick={handleDelete} type="button">
           <Icon
             path={mdiDelete}
             size={1.5}

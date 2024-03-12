@@ -42,6 +42,18 @@ function App() {
 
     skill: [],
   });
+
+  const handleDeleteSkill = (id) => {
+    // Filter out the skill with the specified id
+    const updatedSkillArray = formData.skill.filter((skill) => skill.id !== id);
+
+    // Update the formData state with the new skill array
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      skill: updatedSkillArray,
+    }));
+  };
+
   const handleInputChange = (field, value) => {
     const updatedFormData = { ...formData };
 
@@ -71,7 +83,11 @@ function App() {
         <PersonalData onInputChange={handleInputChange}></PersonalData>
         <Education onInputChange={handleInputChange}></Education>
         <Experience onInputChange={handleInputChange}></Experience>
-        <Skills onInputChange={handleInputChange}></Skills>
+        <Skills
+          onInputChange={handleInputChange}
+          formData={formData}
+          onDeleteSkill={handleDeleteSkill}
+        />
       </div>
       <main className=" asideResume align-center flex flex-grow justify-center">
         <aside className=" fixed  my-10  max-w-2xl bg-[#141616] ">
