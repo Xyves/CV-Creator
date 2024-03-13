@@ -153,6 +153,7 @@ table {
   --main-background: #1c1e1f;
   --sidebar-background: #0c3a529a;
   --section-background: #141616;
+  ---text--slate-800: #cbc7c2;
 }
 section > * {
   padding: 1.5rem;
@@ -222,12 +223,40 @@ textarea {
   overflow-y: scroll;
   scrollbar-color: #aaa49b var(--main-background);
 }
-.button-container {
-  margin-top: 1rem;
+@media (max-width: 1100px) {
+  :root {
+    font-size: 13px;
+  }
 }
-.experienceContainer {
-  max-width: 70%;
+@media (max-width: 800px) {
+  :root {
+    font-size: 11px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar {
+    height: 30rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .sidebar input {
+    width: 90%;
+  }
 }
-.experienceContainer .expPosition {
-  font-size: 1.25rem;
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+  .sidebar {
+    display: none;
+  }
+  .asideResume {
+    font-size: 2rem;
+  }
+  header {
+    background-color: blue;
+  }
 }
