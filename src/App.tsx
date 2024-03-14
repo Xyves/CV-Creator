@@ -6,8 +6,39 @@ import Experience from "./components/Form/Experience";
 import Skills from "./components/Form/Skills";
 import Header from "./components/Form/Header";
 import MainResume from "./components/UI/MainResume";
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  jobPosition: string;
+  jobCompany: string;
+  isWorking: boolean;
+  jobStartDate: string;
+  jobEndDate: string;
+  jobDescription: string;
+  eduQuali: string;
+  eduLocation: string;
+  schoolName: string;
+  startEdu: string;
+  endEdu: string;
+  jobPosition2: string;
+  jobCompany2: string;
+  isWorking2: boolean;
+  jobStartDate2: string;
+  jobEndDate2: string;
+  jobDescription2: string;
+  eduQuali2: string;
+  eduLocation2: string;
+  schoolName2: string;
+  startEdu2: string;
+  endEdu2: string;
+  skills: { name: string; id: number }[];
+}
+
 function App() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "Samuel Diaz",
     email: "samueldiaz@gmail.com",
     phone: "552795015",
