@@ -1,12 +1,13 @@
 import Icon from "@mdi/react";
 import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
+import { handleChildClick } from "../../utils/util";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <section
-      className="sectionForm text-white"
+      className="sectionForm border-[1px] border-solid border-white text-white"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -26,11 +27,26 @@ export default function Header() {
               className="  inline justify-self-end text-white"
             />
           </div>
-          <div className="iconSection"></div>
-          <div className="credits">
-            <h2>Created by</h2>
-            <a href="https://github.com/Xyves" target="_blank">
-              <span>Xyves</span>
+
+          <div className="mg-0 p-3 ">
+            <button
+              className="m-0 bg-blue-600 p-2"
+              onClick={() => {
+                handleChildClick;
+                window.print();
+              }}
+            >
+              Save/Print
+            </button>
+          </div>
+          <div className="credits mb-5 p-2 text-2xl">
+            <h2 className="inline-block">Created by &nbsp;</h2>
+            <a
+              href="https://github.com/Xyves"
+              target="_blank"
+              className="inline-block"
+            >
+              <span> Xyves</span>
             </a>
           </div>
         </>

@@ -1,16 +1,27 @@
 import ReactDOM from "react-dom";
 import Icon from "@mdi/react";
-import { mdiMenuDown, mdiMenuRight, mdiDelete, mdiPlus } from "@mdi/js";
+import {
+  mdiMenuDown,
+  mdiMenuRight,
+  mdiDelete,
+  mdiPlus,
+  mdiDeleteForever,
+} from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function Skills({ onInputChange, skills }) {
+export default function Skills({ onInputChange, skills, onDeleteAllSkills }) {
   const [isVisible, setIsVisible] = useState(false);
   const [skillList, setSkillList] = useState(skills || []);
   const [newSkillName, setNewSkillName] = useState<string>("");
   const onDeleteSkill = (id) => {
     setSkillList(skillList.filter((skill) => skill.id !== id));
   };
+  const handleDeleteAllSkills = () => {
+    setSkillList([]);
+    onDeleteAllSkills(); //  update formData
+  };
+
   function createSkill() {
     const existingSkillIndex = skillList.findIndex(
       (skill) => skill.id === skillList.length + 1
@@ -28,7 +39,7 @@ export default function Skills({ onInputChange, skills }) {
   }
   return (
     <section
-      className="sectionForm"
+      className="sectionForm border-[1px] border-solid border-white"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -61,21 +72,31 @@ export default function Skills({ onInputChange, skills }) {
                 />
               ))}
             </ul>
-            <button
-              className="button-container w-s mx-1 flex justify-between"
-              onClick={() => {
-                handleChildClick;
-                createSkill();
-                console.log("Works");
-              }}
-              type="button"
-            >
-              <Icon
-                path={mdiPlus}
-                className=" -pr ml-auto text-blue-600"
-                size={2.5}
-              />
-            </button>
+            <div className="button-container  w-s mx-1 flex justify-around">
+              <button
+                className="  "
+                onClick={() => {
+                  handleChildClick;
+                  createSkill();
+                }}
+                type="button"
+              >
+                <Icon
+                  path={mdiPlus}
+                  className=" -pr ml-auto text-blue-600"
+                  size={2.5}
+                />
+              </button>
+              <button
+                className="w-s mx-1 mr-2"
+                onClick={() => {
+                  handleDeleteAllSkills();
+                }}
+                type="button"
+              >
+                <Icon path={mdiDeleteForever} size={2.5} />
+              </button>
+            </div>
           </form>
         </>
       )}
@@ -92,7 +113,7 @@ export function Skill({ skill, onInputChange, onDelete }) {
     onDelete(skill.id);
   };
   return (
-    <div className="skill">
+    <div className="skill ">
       <li className="mb-5">
         <input
           type="text"
@@ -100,12 +121,13 @@ export function Skill({ skill, onInputChange, onDelete }) {
           className="py-4"
           onChange={handleChange}
         />
-        <button onClick={handleDelete} type="button">
-          <Icon
+        <button onClick={() => handleDelete()} type="button">
+          {" "}
+          {/* <Icon
             path={mdiDelete}
             size={1.5}
             className="ml-1 inline text-white"
-          />
+          /> */}
         </button>
       </li>
     </div>

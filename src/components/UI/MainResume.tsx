@@ -27,10 +27,17 @@ export default function MainResume({ data }) {
         </header>
       </div>
       <div className="resumeBottom ml-11 p-4">
-        <h2 className="my-5 text-4xl font-bold">Experience</h2>
+        <h2 className="my-3 border-b-2 border-solid border-white p-1 text-4xl font-bold">
+          Experience
+        </h2>
         <ExperienceResume data={data}></ExperienceResume>
-        <h2 className="my-5 text-4xl font-bold">Education</h2>
+        <h2 className="my-3 border-b-2 border-solid border-white p-1 text-4xl font-bold">
+          Education
+        </h2>
         <EducationResume data={data}></EducationResume>
+        <h2 className="my-2 border-b-2 border-solid border-white p-1 text-4xl font-bold">
+          Skills
+        </h2>
         <SkillsResume data={data}></SkillsResume>
       </div>
     </div>

@@ -11,7 +11,7 @@ export default function Education({ onInputChange }) {
   };
   return (
     <section
-      className="education sectionForm"
+      className="education sectionForm border-[1px] border-solid border-white"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
@@ -35,7 +35,7 @@ export default function Education({ onInputChange }) {
             action=""
             id="educationForm"
             onClick={handleChildClick}
-            className="border-4 border-solid border-pink-600"
+            className=""
           >
             <fieldset>
               <ul>
@@ -126,9 +126,8 @@ export default function Education({ onInputChange }) {
               </div>
             </fieldset>
           </form>
-          <button className="w-1/2 place-self-center bg-red-300">
-            Add Education
-          </button>
+          {/* <button className="w-1/2 place-self-center bg-red-300">
+          </button> */}
         </>
       )}
     </section>

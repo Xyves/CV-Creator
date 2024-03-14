@@ -1,10 +1,9 @@
 export default function SkillsResume({ data }) {
-  console.log(data);
   return (
-    <ul>
+    <ul className="ml-7  flex grid list-disc grid-flow-row grid-cols-2 flex-col ">
       {Array.isArray(data.skill) ? (
         data.skill.map((item) => (
-          <li key={item.id} className="mb-5 block bg-green-400 p-3">
+          <li key={item.id} className="mb-2   w-1/2 p-2">
             {item.name}
           </li>
         ))

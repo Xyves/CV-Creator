@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { jsPDF } from "jspdf";
 import PersonalData from "./components/Form/PersonalData";
 import Education from "./components/Form/Education";
 import Experience from "./components/Form/Experience";
@@ -7,10 +8,10 @@ import Header from "./components/Form/Header";
 import MainResume from "./components/UI/MainResume";
 function App() {
   const [formData, setFormData] = useState({
-    name: "Franciszek Wysocki",
-    email: "loremipsum@gmail.com",
+    name: "Samuel Diaz",
+    email: "samueldiaz@gmail.com",
     phone: "552795015",
-    address: "Gdańsk",
+    address: "Madrid",
 
     jobPosition: "Front End Developer",
     jobCompany: "Netflix",
@@ -42,18 +43,21 @@ function App() {
 
     skill: [],
   });
-
-  const handleDeleteSkill = (id) => {
-    // Filter out the skill with the specified id
-    const updatedSkillArray = formData.skill.filter((skill) => skill.id !== id);
-
-    // Update the formData state with the new skill array
+  // Clear all skills
+  const handleDeleteAllSkills = () => {
     setFormData((prevFormData) => ({
       ...prevFormData,
-      skill: updatedSkillArray,
+      skill: [],
     }));
   };
 
+  const handleDeleteSkill = (id) => {
+    const updatedSkills = formData.skill.filter((skill) => skill.id !== id);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      skill: updatedSkills,
+    }));
+  };
   const handleInputChange = (field, value) => {
     const updatedFormData = { ...formData };
 
@@ -62,23 +66,18 @@ function App() {
         (skill) => skill.id === value.id
       );
       if (existingSkillIndex !== -1) {
-        // If a skill with the same ID exists, update it
         updatedFormData[field][existingSkillIndex] = value;
       } else {
-        // If not, push the new skill into the array
         updatedFormData[field].push(value);
       }
     } else {
-      // Update other fields as usual
       updatedFormData[field] = value;
     }
     setFormData(updatedFormData);
-    console.log(formData.skill);
-    console.log(formData);
   };
   return (
     <div className="container flex  min-h-full min-w-full flex-wrap ">
-      <div className="sidebar  mt-7 max-w-xl  overflow-y-scroll px-10 ">
+      <div className="sidebar mt-7  max-w-xl overflow-y-scroll px-10">
         <Header onInputChange={handleInputChange}></Header>
         <PersonalData onInputChange={handleInputChange}></PersonalData>
         <Education onInputChange={handleInputChange}></Education>
@@ -87,6 +86,7 @@ function App() {
           onInputChange={handleInputChange}
           formData={formData}
           onDeleteSkill={handleDeleteSkill}
+          onDeleteAllSkills={handleDeleteAllSkills}
         />
       </div>
       <main className=" asideResume align-center flex flex-grow justify-center">

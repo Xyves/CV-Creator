@@ -4,11 +4,11 @@ import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
 export default function PersonalData({ onInputChange }) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <section
-      className="contact sectionForm "
+      className="contact sectionForm border-[1px] border-solid border-white"
       onClick={(e) => {
         setIsVisible(!isVisible);
       }}

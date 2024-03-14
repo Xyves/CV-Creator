@@ -15,7 +15,7 @@ export default function Experience({ onInputChange }) {
 
   return (
     <section
-      className="experience sectionForm"
+      className="experience sectionForm border-[1px] border-solid border-white"
       onClick={() => {
         setIsVisible(!isVisible);
       }}
