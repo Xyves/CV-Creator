@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { jsPDF } from "jspdf";
 import PersonalData from "./components/Form/PersonalData";
 import Education from "./components/Form/Education";
 import Experience from "./components/Form/Experience";
