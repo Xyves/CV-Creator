@@ -3,7 +3,7 @@ import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function Experience({ onInputChange }) {
+export default function Experience({ onInputChange }: { onInputChange: any }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {

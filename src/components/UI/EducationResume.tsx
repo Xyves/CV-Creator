@@ -1,7 +1,7 @@
 import Icon from "@mdi/react";
 import { mdiMapMarker } from "@mdi/js";
 
-export default function Education({ data }) {
+export default function Education({ data }: { data: any }) {
   return (
     <div className="education mb-5">
       <p className="text-1xl ">

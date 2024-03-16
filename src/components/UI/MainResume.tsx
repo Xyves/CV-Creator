@@ -4,7 +4,7 @@ import ExperienceResume from "./ExperienceResume";
 import Icon from "@mdi/react";
 import { mdiEmail, mdiPhone, mdiMapMarker } from "@mdi/js";
 
-export default function MainResume({ data }) {
+export default function MainResume({ data }: { data: any }) {
   return (
     <div className="resumePreview mx-auto  text-white">
       <div className="resumeTop ">

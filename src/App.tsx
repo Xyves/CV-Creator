@@ -5,6 +5,7 @@ import Experience from "./components/Form/Experience";
 import Skills from "./components/Form/Skills";
 import Header from "./components/Form/Header";
 import MainResume from "./components/UI/MainResume";
+import ErrorBoundary from "./ErrorBoundary";
 
 interface FormData {
   name: string;
@@ -71,27 +72,27 @@ function App() {
     startEdu2: "10/19",
     endEdu2: "2/23",
 
-    skill: [],
+    skills: [],
   });
   // Clear all skills
   const handleDeleteAllSkills = () => {
     setFormData((prevFormData) => ({
       ...prevFormData,
-      skill: [],
+      skills: [],
     }));
   };
 
   const handleDeleteSkill = (id) => {
-    const updatedSkills = formData.skill.filter((skill) => skill.id !== id);
+    const updatedSkills = formData.skills.filter((skill) => skill.id !== id);
     setFormData((prevFormData) => ({
       ...prevFormData,
-      skill: updatedSkills,
+      skills: updatedSkills,
     }));
   };
   const handleInputChange = (field, value) => {
     const updatedFormData = { ...formData };
 
-    if (field === "skill") {
+    if (field === "skills") {
       const existingSkillIndex = updatedFormData[field].findIndex(
         (skill) => skill.id === value.id
       );

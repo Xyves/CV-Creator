@@ -1,4 +1,4 @@
-export default function ExperienceResume({ data }) {
+export default function ExperienceResume({ data }: { data: any }) {
   return (
     <div className="experienceContainer mb-3 mt-5">
       <p className="expPosition m-3 text-xl font-bold">{data.jobPosition}</p>

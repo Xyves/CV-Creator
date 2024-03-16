@@ -3,7 +3,11 @@ import { mdiMenuDown, mdiMenuRight } from "@mdi/js";
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function PersonalData({ onInputChange }) {
+export default function PersonalData({
+  onInputChange,
+}: {
+  onInputChange: any;
+}) {
   const [isVisible, setIsVisible] = useState(false);
 
   return (

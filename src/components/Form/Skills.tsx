@@ -10,7 +10,15 @@ import {
 import { useState } from "react";
 import { handleChildClick } from "../../utils/util";
 
-export default function Skills({ onInputChange, skills, onDeleteAllSkills }) {
+export default function Skills({
+  onInputChange,
+  skills,
+  onDeleteAllSkills,
+}: {
+  onInputChange: any;
+  skills: any;
+  onDeleteAllSkills: any;
+}) {
   const [isVisible, setIsVisible] = useState(false);
   const [skillList, setSkillList] = useState(skills || []);
   const [newSkillName, setNewSkillName] = useState<string>("");
