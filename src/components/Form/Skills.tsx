@@ -130,7 +130,6 @@ export function Skill({ skill, onInputChange, onDelete }) {
           onChange={handleChange}
         />
         <button onClick={() => handleDelete()} type="button">
-          {" "}
           {/* <Icon
             path={mdiDelete}
             size={1.5}

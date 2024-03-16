@@ -9,10 +9,6 @@ export default function Experience({ onInputChange }: { onInputChange: any }) {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
-  const handleChange = (e) => {
-    onInputChange(e.target.value);
-  };
-
   return (
     <section
       className="experience sectionForm border-[1px] border-solid border-white"
