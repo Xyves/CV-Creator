@@ -34,7 +34,7 @@ interface FormData {
   schoolName2: string;
   startEdu2: string;
   endEdu2: string;
-  skills: { name: string; id: number }[];
+  skill: { name: string; id: number }[];
 }
 
 function App() {
@@ -72,27 +72,27 @@ function App() {
     startEdu2: "10/19",
     endEdu2: "2/23",
 
-    skills: [],
+    skill: [],
   });
   // Clear all skills
   const handleDeleteAllSkills = () => {
     setFormData((prevFormData) => ({
       ...prevFormData,
-      skills: [],
+      skill: [],
     }));
   };
 
   const handleDeleteSkill = (id) => {
-    const updatedSkills = formData.skills.filter((skill) => skill.id !== id);
+    const updatedSkills = formData.skill.filter((skill) => skill.id !== id);
     setFormData((prevFormData) => ({
       ...prevFormData,
-      skills: updatedSkills,
+      skill: updatedSkills,
     }));
   };
   const handleInputChange = (field, value) => {
     const updatedFormData = { ...formData };
 
-    if (field === "skills") {
+    if (field === "skill") {
       const existingSkillIndex = updatedFormData[field].findIndex(
         (skill) => skill.id === value.id
       );

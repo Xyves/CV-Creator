@@ -11,15 +11,15 @@ import { handleChildClick } from "../../utils/util";
 
 export default function Skills({
   onInputChange,
-  skills,
+  skill,
   onDeleteAllSkills,
 }: {
   onInputChange: any;
-  skills: any;
+  skill: any;
   onDeleteAllSkills: any;
 }) {
   const [isVisible, setIsVisible] = useState(false);
-  const [skillList, setSkillList] = useState(skills || []);
+  const [skillList, setSkillList] = useState(skill || []);
   const [newSkillName, setNewSkillName] = useState<string>("");
   const onDeleteSkill = (id) => {
     setSkillList(skillList.filter((skill) => skill.id !== id));
@@ -85,6 +85,7 @@ export default function Skills({
                 onClick={() => {
                   handleChildClick;
                   createSkill();
+                  console.log("Works");
                 }}
                 type="button"
               >

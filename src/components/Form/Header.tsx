@@ -28,9 +28,9 @@ export default function Header() {
             />
           </div>
 
-          <div className="mg-0 p-3 ">
+          <div className="mg-0 flex justify-center p-3">
             <button
-              className="m-0 bg-blue-600 p-2"
+              className="m-0 w-1/2 bg-blue-600 p-2 text-center"
               onClick={() => {
                 handleChildClick;
                 window.print();
@@ -39,7 +39,7 @@ export default function Header() {
               Save/Print
             </button>
           </div>
-          <div className="credits mb-5 p-2 text-2xl">
+          <div className="credits mb-5 p-2 text-center text-2xl">
             <h2 className="inline-block">Created by &nbsp;</h2>
             <a
               href="https://github.com/Xyves"

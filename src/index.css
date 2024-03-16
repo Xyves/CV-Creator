@@ -249,7 +249,6 @@ textarea {
   @page {
     size: auto;
     margin: 0mm;
-    print-color-adjust: exact;
   }
   .sidebar {
     display: none;
