@@ -1,7 +1,7 @@
 import EducationResume from "./EducationResume";
 import SkillsResume from "./SkillsResume";
 import ExperienceResume from "./ExperienceResume";
-import Icon from "@mdi/react";
+import { Icon } from "@mdi/react";
 import { mdiEmail, mdiPhone, mdiMapMarker } from "@mdi/js";
 
 export default function MainResume({ data }: { data: any }) {
